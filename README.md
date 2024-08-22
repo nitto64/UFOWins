@@ -75,4 +75,8 @@
 - ユーザー検索機能
     - ブックマーク機能が追加されることで特定のユーザーの記事をブックマークする際に利用するイメージ。
 
+画面遷移図
 https://www.figma.com/design/CeoSE6yyPODnjFxFeN2GSi/%E5%80%8B%E4%BA%BA%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E7%94%A8?node-id=0-1&t=8Hsp6zZ26GQzXs1l-0
+
+ER図
+![ER図](https://i.gyazo.com/69fc8ce90b6e8b0fd3519f979cf1ec6a.png)
