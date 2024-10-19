@@ -16,6 +16,17 @@ module Myapp
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # 不要なファイルを生成しない設定
+    config.generators.system_tests = nil
+    config.generators do |g|
+      g.skip_routes true      # ルーティングファイルを自動生成しない
+      g.helper false          # ヘルパーファイルを自動生成しない
+      g.test_framework nil    # テストファイルを自動生成しない
+    end
+
+    # デフォルトの言語を日本語に設定
+    config.i18n.default_locale = :ja
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
