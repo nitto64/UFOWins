@@ -1,0 +1,9 @@
+<% if object.errors.any? %>
+  <div class="bg-red-500 text-white p-4 mb-4 rounded-lg">
+    <ul>
+      <% object.errors.full_messages.each do |message| %>
+        <li class="list-disc ml-4"><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
