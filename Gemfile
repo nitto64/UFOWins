@@ -23,6 +23,8 @@ gem "jbuilder"
 
 gem 'rails-i18n'
 
+gem 'sorcery'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 

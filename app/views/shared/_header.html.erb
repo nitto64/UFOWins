@@ -1,0 +1,44 @@
+<header>
+  <nav class="bg-green-400 border-gray-200 px-4 h-[88px] py-2.5 rounded z-50">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+      
+      <!-- ロゴ部分 -->
+      <%= link_to root_path, class: "flex items-center" do %>
+        <span class="self-center text-2xl font-bold whitespace-nowrap">UFOWINS</span>
+      <% end %>
+
+      <!-- 掲示板メニューとユーザーメニューを右側に配置 -->
+      <div class="flex items-center space-x-4 p-4 text-sm font-medium">
+        <!-- 掲示板メニュー -->
+        <div class="relative">
+          <input type="checkbox" id="toggle-posts" class="peer hidden">
+          <label for="toggle-posts" class="block py-2 px-4 text-gray-500 bg-white rounded hover:bg-gray-100 cursor-pointer">掲示板</label>
+          
+          <!-- 記録一覧と記録新規作成 -->
+          <ul class="absolute left-0 mt-2 min-w-max bg-white rounded shadow-lg hidden peer-checked:block z-50">
+            <li>
+              <%= link_to "記録一覧", root_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            </li>
+            <li>
+              <%= link_to "記録新規作成", "#", class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ユーザー名メニュー -->
+        <div class="relative">
+          <input type="checkbox" id="toggle-user" class="peer hidden">
+          <label for="toggle-user" class="block py-2 px-4 text-gray-500 bg-white rounded hover:bg-gray-100 cursor-pointer"><%= current_user.name %></label>
+
+          <!-- ログアウト -->
+          <ul class="absolute left-0 mt-2 min-w-max bg-white rounded shadow-lg hidden peer-checked:block z-50">
+            <li>
+              <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete }, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+</header>
