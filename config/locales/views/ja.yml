@@ -17,6 +17,9 @@ ja:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+  posts:
+    new:
+      title: "新規記録作成"
   header:
     login: ログイン
     logout: ログアウト
