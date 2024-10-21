@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :posts
+  resources :users
+  get 'login', to: 'user_sessions#new'
+  post 'login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy'
 
   root 'posts#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
