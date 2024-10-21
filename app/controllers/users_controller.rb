@@ -8,10 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = t('flash.users.create.success')
+      flash[:notice] = t("flash.users.create.success")
       redirect_to root_path
     else
-      flash.now[:alert] = t('flash.users.create.failure')
+      flash.now[:alert] = t("flash.users.create.failure")
       render :new, status: :unprocessable_entity
     end
   end

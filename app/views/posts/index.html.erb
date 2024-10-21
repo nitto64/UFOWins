@@ -1,16 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<% content_for :title, "Posts" %>
-
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+<div class="container mx-auto pt-3">
+  <div class="flex justify-center">
+    <div class="w-full lg:w-8/12">
+      <!-- 検索フォーム -->
+      <form method="get" action="<%= posts_path %>">
+        <div class="form-control mb-3">
+          <div class="input-group flex justify-center">
+            <!-- 検索フィールド -->
+            <input class="input input-bordered rounded-none" placeholder="検索ワード" type="search" name="search"/>
+            <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-none hover:bg-blue-600">検索</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- 投稿一覧 -->
+  <div class="flex flex-wrap px-4">
+    <% if @posts.present? %>
+      <%= render @posts %>
+    <% else %>
+      <div class="w-full text-center mb-3">投稿がありません</div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>
