@@ -1,15 +1,19 @@
 <div class="w-full lg:w-[calc(25%-1rem)] mb-3 lg:mr-3 bg-white p-4 rounded-lg shadow-md flex relative flex-col">
   <!-- タイトル（背景色：緑） -->
   <h4 class="card-title text-lg font-semibold bg-green-500 text-white p-2 rounded-md mb-2">
-    <%= link_to truncate(post.title, length: 19), "#" %> <!-- 投稿の詳細ページへのリンクを#に変更 -->
+    <%= link_to truncate(post.title, length: 19), post_path(post) %> <!-- 投稿の詳細ページへのリンク -->
   </h4>
 
   <!-- サムネイル画像（上側） -->
   <div class="flex-shrink-0 mb-2">
     <% if post.thumbnail.attached? %>  <!-- サムネイル画像がアップロードされている場合 -->
-      <%= image_tag post.thumbnail, class: "rounded-md", style: "width: 100%; height: auto;" %>
-    <% else %>  <!-- サムネイル画像がない場合はデフォルトの画像を表示 -->
-      <%= image_tag "post_placeholder.png", class: "rounded-md", style: "width: 100%; height: auto;" %>
+      <%= link_to post_path(post) do %>  <!-- サムネイル画像をリンク化 -->
+        <%= image_tag post.thumbnail, class: "rounded-md", style: "width: 100%; height: auto;" %>
+      <% end %>
+    <% else %>  <!-- サムネイル画像がない場合はデフォルトの画像をリンク化 -->
+      <%= link_to post_path(post) do %>
+        <%= image_tag "post_placeholder.png", class: "rounded-md", style: "width: 100%; height: auto;" %>
+      <% end %>
     <% end %>
   </div>
 
