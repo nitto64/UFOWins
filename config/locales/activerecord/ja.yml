@@ -12,4 +12,5 @@ ja:
       post:
         title: "タイトル"
         body: "内容"
+        thumbnail: サムネ画像
         

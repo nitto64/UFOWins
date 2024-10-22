@@ -4,9 +4,13 @@
     <%= link_to truncate(post.title, length: 19), "#" %> <!-- 投稿の詳細ページへのリンクを#に変更 -->
   </h4>
 
-  <!-- サムネイル画像（これは仮） -->
+  <!-- サムネイル画像（上側） -->
   <div class="flex-shrink-0 mb-2">
-    <%= image_tag "post_placeholder.png", class: "rounded-md", style: "width: 100%; height: auto;" %>
+    <% if post.thumbnail.attached? %>  <!-- サムネイル画像がアップロードされている場合 -->
+      <%= image_tag post.thumbnail, class: "rounded-md", style: "width: 100%; height: auto;" %>
+    <% else %>  <!-- サムネイル画像がない場合はデフォルトの画像を表示 -->
+      <%= image_tag "post_placeholder.png", class: "rounded-md", style: "width: 100%; height: auto;" %>
+    <% end %>
   </div>
 
   <!-- 投稿者名と作成日時 -->
