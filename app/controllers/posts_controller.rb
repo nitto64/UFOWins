@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show ]
   skip_before_action :require_login, only: %i[index]
 
 
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def create
@@ -29,9 +30,22 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = current_user.posts.find(params[:id])
+
+    if @post.update(post_params)
+      flash[:notice] = t("flash.updated", item: Post.model_name.human)
+      redirect_to @post
+    else
+      flash.now[:alert] = t("flash.not_updated", item: Post.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy!
+
+    redirect_to root_path, notice: t("flash.deleted", item: Post.model_name.human), status: :see_other
   end
 
   private
