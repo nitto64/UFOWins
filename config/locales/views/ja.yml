@@ -22,6 +22,8 @@ ja:
       title: "新規記録作成"
     show:
       title: "記録の詳細画面"
+    edit:
+      title: "記録の編集画面"
   header:
     login: ログイン
     logout: ログアウト
