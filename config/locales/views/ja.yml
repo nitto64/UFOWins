@@ -24,6 +24,10 @@ ja:
       title: "記録の詳細画面"
     edit:
       title: "記録の編集画面"
+  images:
+      delete:
+        confirmation: "本当に削除しますか？"
+        delete_link: "削除"
   header:
     login: ログイン
     logout: ログアウト
@@ -45,3 +49,7 @@ ja:
         failure: "ログインに失敗しました。"
       destroy:
         success: "ログアウトしました。"
+    images:
+      delete:
+        success: "画像を削除しました"
+        failure: "画像の削除に失敗しました"

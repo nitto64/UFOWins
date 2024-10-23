@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    delete 'image/:id', to: 'posts#destroy_image', as: 'image'
+  end
   resources :users
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"

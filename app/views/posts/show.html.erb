@@ -7,7 +7,21 @@
       <%= @post.title %>
     </h4>
 
-    <!-- ここで複数画像の部分を削除 -->
+    <!-- Swiperスライダー表示部分 -->
+    <div class="swiper-container mb-4 relative  max-w-full overflow-hidden"> <!-- relativeクラスを追加 -->
+      <div class="swiper-wrapper">
+        <% @post.main_images.each do |image| %>
+          <div class="swiper-slide">
+            <%= image_tag image, class: "w-full rounded-md h-64 object-cover" %>
+          </div>
+        <% end %>
+      </div>
+      <!-- ページネーション（スライダー内に移動） -->
+      <div class="swiper-pagination absolute bottom-2 left-1/2 transform -translate-x-1/2"></div>
+      <!-- ナビゲーションボタン（スライダー内に移動） -->
+      <div class="swiper-button-prev absolute left-2 top-1/2 transform -translate-y-1/2"></div>
+      <div class="swiper-button-next absolute right-2 top-1/2 transform -translate-y-1/2"></div>
+    </div>
 
     <!-- 本文 -->
     <div class="mb-2 bg-gray-100 p-4 rounded-md">

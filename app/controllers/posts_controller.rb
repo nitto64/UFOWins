@@ -32,7 +32,11 @@ class PostsController < ApplicationController
   def update
     @post = current_user.posts.find(params[:id])
 
-    if @post.update(post_params)
+    # 既存の情報を更新するが、main_imagesはattachメソッドで追加する
+    if @post.update(post_params.except(:main_images))  # main_images以外を更新
+      # 新しい画像が送信されている場合のみattachする
+      @post.main_images.attach(params[:post][:main_images]) if params[:post][:main_images].present?
+
       flash[:notice] = t("flash.updated", item: Post.model_name.human)
       redirect_to @post
     else
@@ -48,6 +52,19 @@ class PostsController < ApplicationController
     redirect_to root_path, notice: t("flash.deleted", item: Post.model_name.human), status: :see_other
   end
 
+  # 複数画像のフォーム内の画像削除のためのアクション
+  def destroy_image
+	  @post = Post.find(params[:post_id])
+    image = @post.main_images.find(params[:id])  # ActiveStorage::Attachment を取得
+    
+    if image.present?
+      image.purge  # 画像のアタッチメントと実際のファイルを削除
+      redirect_to edit_post_path(@post), notice: t('flash.images.delete.success')
+    else
+      redirect_to edit_post_path(@post), alert: t('flash.images.delete.failure')
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -56,6 +73,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :thumbnail)
+      params.require(:post).permit(:title, :body, :thumbnail, main_images: [])
     end
 end
