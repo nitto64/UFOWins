@@ -54,14 +54,14 @@ class PostsController < ApplicationController
 
   # 複数画像のフォーム内の画像削除のためのアクション
   def destroy_image
-	  @post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     image = @post.main_images.find(params[:id])  # ActiveStorage::Attachment を取得
-    
+
     if image.present?
       image.purge  # 画像のアタッチメントと実際のファイルを削除
-      redirect_to edit_post_path(@post), notice: t('flash.images.delete.success')
+      redirect_to edit_post_path(@post), notice: t("flash.images.delete.success")
     else
-      redirect_to edit_post_path(@post), alert: t('flash.images.delete.failure')
+      redirect_to edit_post_path(@post), alert: t("flash.images.delete.failure")
     end
   end
 

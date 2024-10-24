@@ -35,7 +35,7 @@ class AttachmentValidator < ActiveModel::EachValidator
         has_error = true unless validate_content_type(record, attribute, value)
       end
     end
-    
+
     # エラーがあった場合にpurgeする
     record.send(attribute).purge if options[:purge] && has_error
   end
@@ -56,7 +56,7 @@ class AttachmentValidator < ActiveModel::EachValidator
     if value.content_type.match?(options[:content_type])
       true
     else
-      record.errors.add(attribute, options[:message] || 'は対応できないファイル形式です')
+      record.errors.add(attribute, options[:message] || "は対応できないファイル形式です")
       false
     end
   end
