@@ -4,6 +4,20 @@
   <div class="mb-4">
     <%= f.label :title, class: "block text-sm font-medium text-gray-700" %>
     <%= f.text_field :title, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" %>
+
+    <!-- タイトルのヒントモーダルボタン -->
+    <label for="title-hint-modal" class="text-blue-500 cursor-pointer hover:underline">検索されやすいタイトル</label>
+    <input type="checkbox" id="title-hint-modal" class="modal-toggle">
+    <div class="modal">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">タイトルの入力について</h3>
+        <p>商品のキャラクター名や商品名をタイトルに入れると記事が検索されやすくなります。</p>
+        <%= image_tag "https://via.placeholder.com/150", alt: "タイトルのヒント画像", class: "w-full mt-4" %>
+        <div class="modal-action">
+          <label for="title-hint-modal" class="btn">閉じる</label>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="mb-4">
@@ -21,6 +35,24 @@
   <div class="mb-4">
     <%= f.label :main_images, class: "block text-sm font-medium text-gray-700" %>
     <%= f.file_field :main_images, multiple: true, class: "mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" %>
+
+    <!-- 複数画像のヒントモーダルボタン -->
+    <label for="images-hint-modal" class="text-blue-500 cursor-pointer hover:underline">画像のヒント</label>
+    <input type="checkbox" id="images-hint-modal" class="modal-toggle">
+    <div class="modal">
+      <div class="modal-box">
+        <h3 class="font-bold text-lg">画像選択のヒント</h3>
+        <p class="text-sm mt-4">選択した順番に画像が表示されるので、獲得までの流れを順番で選択するとわかりやすくなります。</p>
+        <%= image_tag "複数画像の選択.png", alt: "複数画像の選択", class: "w-full mt-4" %>
+        <!-- 横線（区切り線） -->
+        <hr class="my-4 border-gray-300">
+        <p class="text-center text-sm mt-4">選択した画像はスライド式で表示</p>
+        <%= image_tag "画像の表示方法.png", alt: "画像の表示方法", class: "w-full mt-4" %>
+        <div class="modal-action">
+          <label for="images-hint-modal" class="btn">閉じる</label>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- 画像の削除部分 -->
