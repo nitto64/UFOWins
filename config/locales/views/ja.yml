@@ -18,6 +18,8 @@ ja:
       title: ユーザー登録
       to_login_page: ログインページへ
   posts:
+    index:
+      title: "記録一覧"
     new:
       title: "新規記録作成"
     show:
