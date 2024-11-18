@@ -12,6 +12,6 @@ class Post < ApplicationRecord
 
   # 検索の使用できる属性の指定
   def self.ransackable_attributes(auth_object = nil)
-    ["title", "body", "created_at", "updated_at", "user_id"]
+    [ "title", "body", "created_at", "updated_at", "user_id" ]
   end
 end
