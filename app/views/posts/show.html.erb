@@ -9,7 +9,7 @@
     </h4>
 
     <!-- Swiperスライダー表示部分 -->
-    <div class="swiper-container mb-4 relative  max-w-full overflow-hidden"> <!-- relativeクラスを追加 -->
+    <div class="swiper-container mb-4 relative  max-w-full overflow-hidden" data-controller="swiper"> <!-- relativeクラスを追加 -->
       <div class="swiper-wrapper">
         <% @post.main_images.each do |image| %>
           <div class="swiper-slide">
