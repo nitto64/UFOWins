@@ -26,6 +26,13 @@ ja:
       title: "記録の詳細画面"
     edit:
       title: "記録の編集画面"
+  profiles:
+    show:
+      title: プロフィール詳細画面
+      name: 名前
+      posts_count: 投稿数
+    edit:
+      title: プロフィール編集画面
   images:
       delete:
         confirmation: "本当に削除しますか？"
@@ -34,6 +41,7 @@ ja:
     login: ログイン
     logout: ログアウト
     signup: 新規登録
+    profile: プロフィール
   flash:
     created: "%{item}を作成しました"
     not_created: "%{item}を作成出来ませんでした"

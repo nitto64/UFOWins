@@ -33,6 +33,9 @@
           <!-- ログアウト -->
           <ul class="absolute left-0 mt-2 min-w-max bg-white rounded shadow-lg hidden peer-checked:block z-50">
             <li>
+              <%= link_to t('header.profile'), profile_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            </li>
+            <li>
               <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete }, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
             </li>
           </ul>
