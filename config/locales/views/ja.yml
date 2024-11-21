@@ -20,12 +20,16 @@ ja:
   posts:
     index:
       title: "記録一覧"
+      not_posts: "投稿がありません"
     new:
       title: "新規記録作成"
     show:
       title: "記録の詳細画面"
     edit:
       title: "記録の編集画面"
+    my_posts:
+      title: "自分の記録一覧"
+      not_posts: "投稿がありません"
   profiles:
     show:
       title: プロフィール詳細画面
@@ -42,6 +46,9 @@ ja:
     logout: ログアウト
     signup: 新規登録
     profile: プロフィール
+    index: 記録一覧
+    new: 記録新規作成
+    my_posts: 自分の記録一覧
   flash:
     created: "%{item}を作成しました"
     not_created: "%{item}を作成出来ませんでした"

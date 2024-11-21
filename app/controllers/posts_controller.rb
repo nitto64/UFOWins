@@ -66,6 +66,12 @@ class PostsController < ApplicationController
     end
   end
 
+  # ログインユーザーの一覧
+  def my_posts
+    @q = current_user.posts.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
