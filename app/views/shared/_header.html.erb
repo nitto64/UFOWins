@@ -17,10 +17,13 @@
           <!-- 記録一覧と記録新規作成 -->
           <ul class="absolute left-0 mt-2 min-w-max bg-white rounded shadow-lg hidden peer-checked:block z-50">
             <li>
-              <%= link_to "記録一覧", root_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+              <%= link_to t('header.index'), root_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
             </li>
             <li>
-              <%= link_to "記録新規作成", new_post_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+              <%= link_to t('header.new'), new_post_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
+            </li>
+            <li>
+              <%= link_to t('header.my_posts'), my_posts_posts_path, class: "block px-4 py-2 text-gray-700 hover:bg-gray-100" %>
             </li>
           </ul>
         </div>
