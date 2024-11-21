@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
+  resource :profile, only: %i[show edit update destroy]
 
   root "posts#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
