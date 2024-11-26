@@ -1,0 +1,7 @@
+<% posts.each do |post| %>
+  <li class="list-group-item border border-gray-200 p-3"
+      role="option"
+      data-autocomplete-value="<%= post.title %>">
+    <%= post.title.truncate(9) %>
+  </li>
+<% end %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
     collection do
       get "my_posts", to: "posts#my_posts"
+      get :autocomplete
     end
   end
   resources :users
