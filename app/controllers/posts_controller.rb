@@ -74,7 +74,7 @@ class PostsController < ApplicationController
 
   # 検索のオートコンプリート
   def autocomplete
-    @posts = Post.where("title LIKE ?", "%#{params[:q]}%")
+    @posts = Post.where("title LIKE ?", "%#{params[:q]}%").limit(5)
     render partial: "posts/autocomplete_results", locals: { posts: @posts }
   end
 
