@@ -1,10 +1,17 @@
 <%= search_form_for @q, url: url, class: 'flex items-center gap-1 justify-center px-1' do |f| %>
   <!-- タイトル検索フィールド -->
-  <div class="form-control max-w-xs w-auto">
+  <div data-controller="autocomplete" class="form-control max-w-xs w-auto" 
+       data-autocomplete-url-value="/posts/autocomplete">
     <%= f.text_field :title_cont, 
       placeholder: 'タイトル検索', 
       id: 'search_field_of_title', 
-      class: 'input input-bordered w-full px-4 py-2' %>
+      class: 'input input-bordered w-full px-4 py-2',
+      data: { autocomplete_target: 'input' } %>
+
+    <!-- 検索結果を表示する ul 要素 -->
+    <ul data-autocomplete-target="results" class="autocomplete-results list-group border border-gray-300 bg-white shadow-md rounded mt-2 max-h-40 overflow-y-auto">
+      <!-- 検索結果がここに表示されます -->
+    </ul>
   </div>
 
   <!-- 本文検索フィールド -->

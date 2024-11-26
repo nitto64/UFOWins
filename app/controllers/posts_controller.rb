@@ -72,6 +72,12 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
+  # 検索のオートコンプリート
+  def autocomplete
+    @posts = Post.where("title LIKE ?", "%#{params[:q]}%")
+    render partial: "posts/autocomplete_results", locals: { posts: @posts }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

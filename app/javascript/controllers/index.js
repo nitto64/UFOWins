@@ -7,5 +7,10 @@ import { application } from "./application"
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+// Swiperの初期設定の登録
 import SwiperController from "./swiper_controller"
 application.register("swiper", SwiperController)
+
+// Stimulus Autocomplete の登録
+import { Autocomplete } from "stimulus-autocomplete"
+application.register("autocomplete", Autocomplete)
