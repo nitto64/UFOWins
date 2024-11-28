@@ -30,6 +30,9 @@ ja:
     my_posts:
       title: "自分の記録一覧"
       not_posts: "投稿がありません"
+    bookmarks:
+      title: ブックマーク一覧
+      not_posts: 投稿がありません
   profiles:
     show:
       title: プロフィール詳細画面
@@ -49,6 +52,7 @@ ja:
     index: 記録一覧
     new: 記録新規作成
     my_posts: 自分の記録一覧
+    bookmarks: ブックマーク一覧
   flash:
     created: "%{item}を作成しました"
     not_created: "%{item}を作成出来ませんでした"

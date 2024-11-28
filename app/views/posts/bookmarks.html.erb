@@ -1,0 +1,22 @@
+<% content_for(:title, t('.title')) %>
+<div class="container mx-auto pt-3">
+  <div class="flex justify-center">
+    <div class="w-full lg:w-8/12">
+      <!-- 検索フォーム代替のブロック要素 -->
+      <div class="w-full flex flex-col form-control mb-3">
+        <!-- 横並びの検索要素 -->
+        <div class="flex justify-center items-center w-full gap-1">
+          <%= render 'search', q: @q, url: bookmarks_posts_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 投稿一覧 -->
+  <div class="flex flex-wrap px-4">
+    <% if @posts.present? %>
+      <%= render @posts %>
+    <% else %>
+      <div class="w-full text-center mb-3"><%= t('.not_posts') %></div>
+    <% end %>
+  </div>
+</div>

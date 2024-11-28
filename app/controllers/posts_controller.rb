@@ -78,6 +78,11 @@ class PostsController < ApplicationController
     render partial: "posts/autocomplete_results", locals: { posts: @posts }
   end
 
+  def bookmarks
+    @q = current_user.bookmark_posts.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
