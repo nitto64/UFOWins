@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
   # アソシエーション
   belongs_to :user
+  has_many :bookmarks, dependent: :destroy
+  
+  # 画像のアップロード
   has_one_attached :thumbnail, dependent: :destroy
   has_many_attached :main_images, dependent: :destroy
 

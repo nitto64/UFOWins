@@ -5,8 +5,10 @@ Rails.application.routes.draw do
     collection do
       get "my_posts", to: "posts#my_posts"
       get :autocomplete
+      get :bookmarks
     end
   end
+  resources :bookmarks, only: %i[create destroy]
   resources :users
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
