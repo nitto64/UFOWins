@@ -8,6 +8,18 @@
       <%= @post.title %>
     </h4>
 
+    <!-- 商品名セクション -->
+    <div class="flex items-center mb-4">
+      <!-- 商品名ラベル（青色ボックス） -->
+      <div class="flex items-center p-2 bg-blue-500 text-white font-semibold  rounded-l-lg">
+        <%= t('.item_name') %>
+      </div>
+      <!-- 商品名（白いボックス） -->
+      <div class="bg-gray-200 text-black font-medium p-2 rounded-r-lg flex-1 flex items-center">
+        <%= @post.item_name %>
+      </div>
+    </div>
+
     <!-- Swiperスライダー表示部分 -->
     <div class="swiper-container mb-4 relative  max-w-full overflow-hidden" data-controller="swiper"> <!-- relativeクラスを追加 -->
       <div class="swiper-wrapper">
@@ -25,7 +37,7 @@
     </div>
 
     <!-- 本文 -->
-    <div class="mb-2 bg-gray-100 p-4 rounded-md">
+    <div class="mb-2 bg-gray-200 p-4 rounded-md">
       <p class="text-black">
         <%= simple_format(@post.body) %> <!-- 本文を表示 -->
       </p>

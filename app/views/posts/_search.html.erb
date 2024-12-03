@@ -1,30 +1,51 @@
-<%= search_form_for @q, url: url, class: 'flex items-center gap-1 justify-center px-1' do |f| %>
-  <!-- タイトル検索フィールド -->
-  <div data-controller="autocomplete" class="form-control max-w-xs w-auto" 
-       data-autocomplete-url-value="/posts/autocomplete">
-    <%= f.text_field :title_cont, 
-      placeholder: 'タイトル検索', 
-      id: 'search_field_of_title', 
-      class: 'input input-bordered w-full px-4 py-2',
-      data: { autocomplete_target: 'input' } %>
+<%= search_form_for @q, url: url, class: 'flex flex-col items-center gap-3' do |f| %>
+  <!-- 上段: 商品名検索 & 本文検索 -->
+  <div class="flex justify-center items-center gap-1 w-full">
+    <!-- 商品名検索フィールド -->
+    <div data-controller="autocomplete" class="form-control max-w-xs w-full md:w-1/3" 
+         data-autocomplete-url-value="/posts/autocomplete?type=item_name">
+      <%= f.text_field :item_name_cont, 
+        placeholder: '商品名検索', 
+        id: 'search_field_of_item_name', 
+        class: 'input input-bordered w-full px-4 py-2',
+        data: { autocomplete_target: 'input' } %>
 
-    <!-- 検索結果を表示する ul 要素 -->
-    <ul data-autocomplete-target="results" class="autocomplete-results list-group border border-gray-300 bg-white shadow-md rounded mt-2 max-h-40 overflow-y-auto">
-      <!-- 検索結果がここに表示されます -->
-    </ul>
+      <!-- 検索結果を表示する ul 要素 -->
+      <ul data-autocomplete-target="results" class="autocomplete-results list-group border border-gray-300 bg-white shadow-md rounded mt-2 max-h-40 overflow-y-auto">
+        <!-- 検索結果がここに表示されます -->
+      </ul>
+    </div>
+
+    <!-- 本文検索フィールド -->
+    <div class="form-control max-w-xs w-full md:w-1/3">
+      <%= f.text_field :body_cont, 
+        placeholder: '本文検索', 
+        id: 'search_field_of_body', 
+        class: 'input input-bordered w-full px-4 py-2' %>
+    </div>
   </div>
 
-  <!-- 本文検索フィールド -->
-  <div class="form-control max-w-xs w-auto">
-    <%= f.text_field :body_cont, 
-      placeholder: '本文検索', 
-      id: 'search_field_of_body', 
-      class: 'input input-bordered w-full px-4 py-2' %>
-  </div>
+  <!-- 下段: タイトル検索 & 送信ボタン -->
+  <div class="flex justify-center items-center gap-1 w-full">
+    <!-- タイトル検索フィールド -->
+    <div data-controller="autocomplete" class="form-control max-w-xs w-full md:w-2/3" 
+         data-autocomplete-url-value="/posts/autocomplete?type=title">
+      <%= f.text_field :title_cont, 
+        placeholder: 'タイトル検索', 
+        id: 'search_field_of_title', 
+        class: 'input input-bordered w-full px-4 py-2',
+        data: { autocomplete_target: 'input' } %>
 
-  <!-- 送信ボタン -->
-  <div class="w-auto">
-    <%= f.submit '検索', 
-      class: 'btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-md' %>
+      <!-- 検索結果を表示する ul 要素 -->
+      <ul data-autocomplete-target="results" class="autocomplete-results list-group border border-gray-300 bg-white shadow-md rounded mt-2 max-h-40 overflow-y-auto">
+        <!-- 検索結果がここに表示されます -->
+      </ul>
+    </div>
+
+    <!-- 送信ボタン -->
+    <div class="form-control w-auto">
+      <%= f.submit '検索', 
+        class: 'btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md' %>
+    </div>
   </div>
 <% end %>

@@ -1,12 +1,15 @@
 <% content_for(:title, t('.title')) %>
 <div class="container mx-auto pt-3">
-  <div class="flex justify-center">
+  <div class="flex justify-center px-4 mb-5"> <!-- 両サイドに余白を追加 -->
     <div class="w-full lg:w-8/12">
-      <!-- 検索フォーム代替のブロック要素 -->
-      <div class="w-full flex flex-col form-control mb-3">
-        <!-- 横並びの検索要素 -->
-        <div class="flex justify-center items-center w-full gap-1">
-          <%= render 'search', q: @q, url: my_posts_posts_path %>
+      <!-- 検索フォーム全体を囲むボックス -->
+      <div class="w-full bg-white border border-gray-300 p-3 rounded-lg shadow-sm">
+        <!-- 検索フォーム代替のブロック要素 -->
+        <div class="w-full flex flex-col form-control">
+          <!-- 横並びの検索要素 -->
+          <div class="flex flex-col justify-center items-center gap-3">
+            <%= render 'search', q: @q, url: posts_path %>
+          </div>
         </div>
       </div>
     </div>

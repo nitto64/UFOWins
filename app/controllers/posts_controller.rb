@@ -74,8 +74,13 @@ class PostsController < ApplicationController
 
   # 検索のオートコンプリート
   def autocomplete
-    @posts = Post.where("title LIKE ?", "%#{params[:q]}%").limit(5)
-    render partial: "posts/autocomplete_results", locals: { posts: @posts }
+    if params[:type] == "title"
+      @posts = Post.where("title LIKE ?", "%#{params[:q]}%").limit(5)
+      render partial: "posts/autocomplete_results", locals: { posts: @posts, type: "title" }
+    elsif params[:type] == "item_name"
+      @posts = Post.where("item_name LIKE ?", "%#{params[:q]}%").limit(5)
+      render partial: "posts/autocomplete_results", locals: { posts: @posts, type: "item_name" }
+    end
   end
 
   def bookmarks
@@ -91,6 +96,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :thumbnail, main_images: [])
+      params.require(:post).permit(:title, :body, :item_name, :thumbnail, main_images: [])
     end
 end

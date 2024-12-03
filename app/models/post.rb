@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   # アソシエーション
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
-  
+
   # 画像のアップロード
   has_one_attached :thumbnail, dependent: :destroy
   has_many_attached :main_images, dependent: :destroy
@@ -15,6 +15,11 @@ class Post < ApplicationRecord
 
   # 検索の使用できる属性の指定
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "body", "created_at", "updated_at", "user_id" ]
+    [ "title", "body", "item_name", "created_at", "updated_at", "user_id" ]
+  end
+
+  # 商品名のデフォルトの表示メソッド
+  def item_name_or_default
+    item_name.presence || "未設定"
   end
 end
