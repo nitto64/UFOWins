@@ -1,7 +1,11 @@
 <% posts.each do |post| %>
   <li class="list-group-item border border-gray-200 p-3"
       role="option"
-      data-autocomplete-value="<%= post.title %>">
-    <%= post.title.truncate(9) %>
+      data-autocomplete-value="<%= type == 'item_name' ? post.item_name : post.title %>">
+    <% if type == 'item_name' %>
+      <%= post.item_name.truncate(10) %>
+    <% else %>
+      <%= post.title.truncate(13) %>
+    <% end %>
   </li>
 <% end %>
