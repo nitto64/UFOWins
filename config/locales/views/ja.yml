@@ -41,6 +41,13 @@ ja:
       posts_count: 投稿数
     edit:
       title: プロフィール編集画面
+  password_resets:
+    new:
+      title: パスワードリセット申請画面
+      submit: 申請
+    edit:
+      title: パスワード再設定画面
+      submit: リセット
   images:
       delete:
         confirmation: "本当に削除しますか？"
